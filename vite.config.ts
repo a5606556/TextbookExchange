@@ -5,7 +5,6 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      base: 'https://a5606556.github.io/TextbookExchange/',
       server: {
         port: 3000,
         host: '0.0.0.0',
