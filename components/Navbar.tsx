@@ -1,10 +1,17 @@
 import React from 'react';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onNavigate: (page: string) => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-solid border-border-dark bg-background-dark/95 backdrop-blur">
       <div className="layout-container mx-auto flex h-16 max-w-[960px] items-center justify-between px-4 sm:px-10">
-        <div className="flex items-center gap-4 text-white hover:opacity-80 transition-opacity cursor-pointer">
+        <div 
+          onClick={() => onNavigate('home')}
+          className="flex items-center gap-4 text-white hover:opacity-80 transition-opacity cursor-pointer"
+        >
           <span className="material-symbols-outlined text-primary text-[32px]">menu_book</span>
           <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em] hidden sm:block">
             TextbookExchange
@@ -12,9 +19,9 @@ const Navbar: React.FC = () => {
         </div>
         <div className="flex items-center gap-4 sm:gap-8">
           <nav className="hidden md:flex items-center gap-6">
-            <a href="#" className="text-white text-sm font-medium hover:text-primary transition-colors">Buy</a>
-            <a href="#" className="text-white text-sm font-medium hover:text-primary transition-colors">Sell</a>
-            <a href="#" className="text-white text-sm font-medium hover:text-primary transition-colors">Community</a>
+            <button onClick={() => onNavigate('buy')} className="text-white text-sm font-medium hover:text-primary transition-colors bg-transparent border-none cursor-pointer">Buy</button>
+            <button onClick={() => onNavigate('home')} className="text-white text-sm font-medium hover:text-primary transition-colors bg-transparent border-none cursor-pointer">Sell</button>
+            <button onClick={() => onNavigate('home')} className="text-white text-sm font-medium hover:text-primary transition-colors bg-transparent border-none cursor-pointer">Community</button>
           </nav>
           <div className="flex gap-2">
             <button className="flex h-9 items-center justify-center rounded-full bg-surface-dark border border-border-dark px-4 text-white text-sm font-bold hover:bg-border-dark transition-colors">
