@@ -13,7 +13,7 @@ function App() {
 
   const navigateTo = (page: string) => {
     if (page === 'buy' || page === 'home') {
-      setCurrentView(page);
+      setCurrentView(page as 'home' | 'buy');
       window.scrollTo(0, 0);
     }
   };
